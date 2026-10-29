@@ -1,0 +1,189 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="sv.edu.udb.exploramundodesafio"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->INJECTED
+8        android:minSdkVersion="26"
+8-->INJECTED
+9        android:targetSdkVersion="36" />
+9-->INJECTED
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:6:22-76
+13
+14    <permission
+14-->[androidx.core:core:1.18.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\4f929a4f8c97f132a362ee3255513735\transformed\core-1.18.0\AndroidManifest.xml:22:5-24:47
+15        android:name="sv.edu.udb.exploramundodesafio.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+15-->[androidx.core:core:1.18.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\4f929a4f8c97f132a362ee3255513735\transformed\core-1.18.0\AndroidManifest.xml:23:9-81
+16        android:protectionLevel="signature" />
+16-->[androidx.core:core:1.18.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\4f929a4f8c97f132a362ee3255513735\transformed\core-1.18.0\AndroidManifest.xml:24:9-44
+17
+18    <uses-permission android:name="sv.edu.udb.exploramundodesafio.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+18-->[androidx.core:core:1.18.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\4f929a4f8c97f132a362ee3255513735\transformed\core-1.18.0\AndroidManifest.xml:26:5-97
+18-->[androidx.core:core:1.18.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\4f929a4f8c97f132a362ee3255513735\transformed\core-1.18.0\AndroidManifest.xml:26:22-94
+19
+20    <supports-screens
+20-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:9:5-12:40
+21        android:anyDensity="true"
+21-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:10:9-34
+22        android:largeScreens="true"
+22-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:11:9-36
+23        android:normalScreens="true" />
+23-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:12:9-37
+24
+25    <uses-feature
+25-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:14:5-16:36
+26        android:name="android.hardware.location.network"
+26-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:15:9-57
+27        android:required="false" />
+27-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:16:9-33
+28    <uses-feature
+28-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:17:5-19:36
+29        android:name="android.hardware.location.gps"
+29-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:18:9-53
+30        android:required="false" />
+30-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:19:9-33
+31    <uses-feature
+31-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:20:5-22:36
+32        android:name="android.hardware.telephony"
+32-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:21:9-50
+33        android:required="false" />
+33-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:22:9-33
+34    <uses-feature
+34-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:23:5-25:36
+35        android:name="android.hardware.wifi"
+35-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:24:9-45
+36        android:required="false" />
+36-->[org.osmdroid:osmdroid-android:6.1.20] C:\Users\julio\.gradle\caches\9.4.1\transforms\39d0ae3ace760b15e69aac8726b6d8ab\transformed\osmdroid-android-6.1.20\AndroidManifest.xml:25:9-33
+37
+38    <application
+38-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:8:5-36:19
+39        android:allowBackup="true"
+39-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:9:9-35
+40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+40-->[androidx.core:core:1.18.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\4f929a4f8c97f132a362ee3255513735\transformed\core-1.18.0\AndroidManifest.xml:28:18-86
+41        android:dataExtractionRules="@xml/data_extraction_rules"
+41-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:10:9-65
+42        android:debuggable="true"
+43        android:extractNativeLibs="false"
+43-->INJECTED
+44        android:fullBackupContent="@xml/backup_rules"
+44-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:11:9-54
+45        android:icon="@mipmap/ic_launcher"
+45-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:12:9-43
+46        android:label="@string/app_name"
+46-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:13:9-41
+47        android:roundIcon="@mipmap/ic_launcher_round"
+47-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:14:9-54
+48        android:supportsRtl="true"
+48-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:15:9-35
+49        android:testOnly="true"
+50        android:theme="@style/Theme.ExploraMundoDesafio" >
+50-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:16:9-57
+51        <activity
+51-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:17:9-26:20
+52            android:name="sv.edu.udb.exploramundodesafio.MainActivity"
+52-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:18:13-41
+53            android:exported="true"
+53-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:19:13-36
+54            android:windowSoftInputMode="adjustResize" >
+54-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:20:13-55
+55            <intent-filter>
+55-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:21:13-25:29
+56                <action android:name="android.intent.action.MAIN" />
+56-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:22:17-69
+56-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:22:25-66
+57
+58                <category android:name="android.intent.category.LAUNCHER" />
+58-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:24:17-77
+58-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:24:27-74
+59            </intent-filter>
+60        </activity>
+61        <activity
+61-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:28:9-30:40
+62            android:name="sv.edu.udb.exploramundodesafio.controller.CountriesActivity"
+62-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:29:13-57
+63            android:exported="false" />
+63-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:30:13-37
+64        <activity
+64-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:32:9-34:40
+65            android:name="sv.edu.udb.exploramundodesafio.controller.CountryDetailActivity"
+65-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:33:13-61
+66            android:exported="false" />
+66-->C:\Users\julio\Documents\GitHub\DSM_DESAFIO_RL241378\app\src\main\AndroidManifest.xml:34:13-37
+67
+68        <provider
+68-->[androidx.emoji2:emoji2:1.3.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\52cf3c0043f0b51a65a425714a53cb9e\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+69            android:name="androidx.startup.InitializationProvider"
+69-->[androidx.emoji2:emoji2:1.3.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\52cf3c0043f0b51a65a425714a53cb9e\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+70            android:authorities="sv.edu.udb.exploramundodesafio.androidx-startup"
+70-->[androidx.emoji2:emoji2:1.3.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\52cf3c0043f0b51a65a425714a53cb9e\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+71            android:exported="false" >
+71-->[androidx.emoji2:emoji2:1.3.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\52cf3c0043f0b51a65a425714a53cb9e\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+72            <meta-data
+72-->[androidx.emoji2:emoji2:1.3.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\52cf3c0043f0b51a65a425714a53cb9e\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+73                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+73-->[androidx.emoji2:emoji2:1.3.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\52cf3c0043f0b51a65a425714a53cb9e\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+74                android:value="androidx.startup" />
+74-->[androidx.emoji2:emoji2:1.3.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\52cf3c0043f0b51a65a425714a53cb9e\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+75            <meta-data
+75-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\c8b6e1992ab1c140db579e97ee9dde84\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:29:13-31:52
+76                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+76-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\c8b6e1992ab1c140db579e97ee9dde84\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:30:17-78
+77                android:value="androidx.startup" />
+77-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\c8b6e1992ab1c140db579e97ee9dde84\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:31:17-49
+78            <meta-data
+78-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+79                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+79-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+80                android:value="androidx.startup" />
+80-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+81        </provider>
+82
+83        <receiver
+83-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+84            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+84-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+85            android:directBootAware="false"
+85-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+86            android:enabled="true"
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+87            android:exported="true"
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+88            android:permission="android.permission.DUMP" >
+88-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+89            <intent-filter>
+89-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+90                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+91            </intent-filter>
+92            <intent-filter>
+92-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+93                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+93-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+93-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+94            </intent-filter>
+95            <intent-filter>
+95-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+96                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+97            </intent-filter>
+98            <intent-filter>
+98-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+99                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\julio\.gradle\caches\9.4.1\transforms\e73b6c56c39d9683fbeaec599d8a4e8a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+100            </intent-filter>
+101        </receiver>
+102    </application>
+103
+104</manifest>

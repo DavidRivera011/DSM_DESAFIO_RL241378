@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "sv.edu.udb.exploramundodesafio.app-mergeDebugResources-40:/values-w600dp-v13/values-w600dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\julio\\.gradle\\caches\\9.4.1\\transforms\\5088383d5b50237b63e05047103672c4\\transformed\\material-1.14.0\\res\\values-w600dp-v13\\values-w600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,124",
+                        "endColumns": "68,69",
+                        "endOffsets": "119,189"
+                    }
+                }
+            ]
+        }
+    ]
+}
