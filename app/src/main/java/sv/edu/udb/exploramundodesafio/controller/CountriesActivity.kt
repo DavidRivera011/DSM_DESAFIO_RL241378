@@ -6,15 +6,19 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Call
-import retrofit2.Callback
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.launch
 import retrofit2.Response
 import sv.edu.udb.exploramundodesafio.R
 import sv.edu.udb.exploramundodesafio.adapter.CountryAdapter
 import sv.edu.udb.exploramundodesafio.model.CountriesResponse
-import sv.edu.udb.exploramundodesafio.network.RetrofitClient
+import sv.edu.udb.exploramundodesafio.network.RestCountriesClient
+import java.io.IOException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 
 class CountriesActivity : AppCompatActivity() {
 
@@ -52,75 +56,115 @@ class CountriesActivity : AppCompatActivity() {
     }
 
     private fun loadCountries(regionApi: String) {
-        progressBar.visibility = View.VISIBLE
-        messageTextView.visibility = View.GONE
-        countriesRecyclerView.visibility = View.GONE
 
-        RetrofitClient.restCountriesService
-            .getCountriesByRegion(regionApi)
-            .enqueue(object : Callback<CountriesResponse> {
+        lifecycleScope.launch {
 
-                override fun onResponse(
-                    call: Call<CountriesResponse>,
-                    response: Response<CountriesResponse>
-                ) {
-                    progressBar.visibility = View.GONE
+            progressBar.visibility = View.VISIBLE
+            messageTextView.visibility = View.GONE
+            countriesRecyclerView.visibility = View.GONE
 
-                    if (response.isSuccessful) {
-                        val countries = response.body()
-                            ?.data
-                            ?.objects
-                            .orEmpty()
-                            .sortedBy { it.displayName() }
+            try {
 
-                        if (countries.isEmpty()) {
-                            showMessage(
-                                "No hay países disponibles para esta región."
-                            )
-                        } else {
-                            countriesRecyclerView.adapter =
-                                CountryAdapter(countries)
+                val response = RestCountriesClient.restCountriesService
+                    .getCountriesByRegion(regionApi)
 
-                            countriesRecyclerView.visibility = View.VISIBLE
-                        }
-                    } else {
-                        val errorDetails =
-                            response.errorBody()?.string().orEmpty()
+                if (response.isSuccessful) {
 
-                        Log.e(
-                            TAG,
-                            "Error HTTP ${response.code()}: $errorDetails"
-                        )
+                    val countries = response.body()
+                        ?.data
+                        ?.objects
+                        .orEmpty()
+                        .sortedBy { it.displayName() }
+
+                    if (countries.isEmpty()) {
 
                         showMessage(
-                            when (response.code()) {
-                                401 -> "La API key no es válida, " +
-                                        "ha expirado o no se está enviando."
-                                403 -> "La API key no tiene permiso " +
-                                        "para realizar esta petición."
-                                429 -> "Se alcanzó el límite de peticiones " +
-                                        "de la API. Intenta más tarde."
-                                else -> "No se pudieron cargar los países. " +
-                                        "Error HTTP ${response.code()}."
-                            }
+                            "No hay países disponibles para esta región."
                         )
+
+                    } else {
+
+                        countriesRecyclerView.adapter =
+                            CountryAdapter(countries)
+
+                        countriesRecyclerView.visibility = View.VISIBLE
                     }
-                }
 
-                override fun onFailure(
-                    call: Call<CountriesResponse>,
-                    t: Throwable
-                ) {
-                    progressBar.visibility = View.GONE
+                } else {
 
-                    Log.e(TAG, "Error de conexión con REST Countries", t)
+                    val errorDetails =
+                        response.errorBody()?.string().orEmpty()
+
+                    Log.e(
+                        TAG,
+                        "Error HTTP ${response.code()}: $errorDetails"
+                    )
 
                     showMessage(
-                        "Error de conexión: " +
-                                (t.localizedMessage ?: "Error desconocido")
+                        when (response.code()) {
+
+                            400 ->
+                                "La solicitud enviada a REST Countries no es válida."
+
+                            401 ->
+                                "La API Key no es válida, ha expirado " +
+                                        "o no se está enviando correctamente."
+
+                            403 ->
+                                "No tienes autorización para consultar esta información."
+
+                            404 ->
+                                "No se encontró información para esta región."
+
+                            408 ->
+                                "La solicitud tardó demasiado tiempo. Intenta nuevamente."
+
+                            429 ->
+                                "Se alcanzó el límite de peticiones. Intenta más tarde."
+
+                            in 500..599 ->
+                                "El servidor de REST Countries presenta problemas. " +
+                                        "Intenta nuevamente más tarde."
+
+                            else ->
+                                "No se pudieron cargar los países. " +
+                                        "Error HTTP ${response.code()}."
+                        }
                     )
                 }
-            })
+
+            } catch (e: CancellationException) {
+
+                // No debemos impedir la cancelación de la corrutina.
+                throw e
+
+            } catch (e: SocketTimeoutException) {
+
+                Log.e(TAG, "Tiempo de espera agotado", e)
+                showMessage("Se agotó el tiempo de espera. Intenta nuevamente.")
+
+            } catch (e: UnknownHostException) {
+
+                Log.e(TAG, "No se pudo contactar al servidor", e)
+                showMessage(
+                    "No hay conexión a Internet o no se pudo contactar al servidor."
+                )
+
+            } catch (e: IOException) {
+
+                Log.e(TAG, "Error de comunicación con REST Countries", e)
+                showMessage("Ocurrió un problema de comunicación con el servidor.")
+
+            } catch (e: Exception) {
+
+                Log.e(TAG, "Error inesperado al cargar países", e)
+                showMessage("Ocurrió un error inesperado al cargar los países.")
+
+            } finally {
+
+                progressBar.visibility = View.GONE
+            }
+        }
     }
 
     private fun showMessage(message: String) {

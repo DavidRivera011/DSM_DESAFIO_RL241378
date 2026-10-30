@@ -1,6 +1,7 @@
 package sv.edu.udb.exploramundodesafio.model
 
 import com.google.gson.annotations.SerializedName
+import com.google.gson.JsonObject
 
 data class Country(
     @SerializedName("names")
@@ -25,13 +26,13 @@ data class Country(
     val codes: CountryCodes? = null,
 
     @SerializedName("currencies")
-    val currencies: Map<String, CountryCurrency>? = null,
+    val currencies: List<CountryCurrency>? = null,
 
     @SerializedName("languages")
-    val languages: Map<String, String>? = null,
+    val languages: List<JsonObject>? = null,
 
     @SerializedName("coordinates")
-    val coordinates: List<Double>? = null
+    val coordinates: CountryCoordinates? = null
 ) {
     fun displayName(): String =
         names?.common ?: "País sin nombre"
@@ -47,7 +48,7 @@ data class Country(
             ?: flag?.urlSvg?.takeIf { it.isNotBlank() }
 
     fun displayCurrencies(): String =
-        currencies?.values
+        currencies
             ?.mapNotNull { currency ->
                 currency.name?.let { name ->
                     currency.symbol?.let { "$name ($it)" } ?: name
@@ -58,16 +59,30 @@ data class Country(
             ?: "No disponible"
 
     fun displayLanguages(): String =
-        languages?.values
+        languages
+            ?.mapNotNull { language ->
+                listOf("name", "language", "common")
+                    .firstNotNullOfOrNull { key ->
+                        language.get(key)
+                            ?.takeIf { it.isJsonPrimitive }
+                            ?.asString
+                    }
+            }
+            ?.distinct()
             ?.joinToString(", ")
             ?.ifBlank { null }
             ?: "No disponible"
 
-    fun displayCoordinates(): String =
-        coordinates
-            ?.takeIf { it.size >= 2 }
-            ?.let { "${it[0]}, ${it[1]}" }
-            ?: "No disponibles"
+    fun displayCoordinates(): String {
+        val lat = coordinates?.lat
+        val lng = coordinates?.lng
+
+        return if (lat != null && lng != null) {
+            "$lat, $lng"
+        } else {
+            "No disponibles"
+        }
+    }
 }
 
 data class CountryNames(
@@ -111,4 +126,12 @@ data class CountryCurrency(
 
     @SerializedName("symbol")
     val symbol: String? = null
+)
+
+data class CountryCoordinates(
+    @SerializedName("lat")
+    val lat: Double? = null,
+
+    @SerializedName("lng")
+    val lng: Double? = null
 )

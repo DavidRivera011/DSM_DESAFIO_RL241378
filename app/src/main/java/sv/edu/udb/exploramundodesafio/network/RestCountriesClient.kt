@@ -3,12 +3,14 @@ package sv.edu.udb.exploramundodesafio.network
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import sv.edu.udb.exploramundodesafio.apikeys.ApiKeysExample
 
-object RetrofitClient {
+object RestCountriesClient {
 
     private const val BASE_URL = "https://api.restcountries.com/"
 
-    private const val API_KEY = "rc_live_fc72c5db611146ff88bd2022735b9368"
+    private const val API_KEY =
+        ApiKeysExample.REST_COUNTRIES_API_KEY
 
     private val httpClient: OkHttpClient by lazy {
         OkHttpClient.Builder()

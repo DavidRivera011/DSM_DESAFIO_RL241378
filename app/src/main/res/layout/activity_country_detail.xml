@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detailScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1F5FC"
@@ -9,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="16dp">
 
         <Button
             android:id="@+id/backButton"
@@ -20,104 +21,162 @@
             android:backgroundTint="#E6D5F5"
             android:textColor="#51416A" />
 
-        <TextView
-            android:id="@+id/detailCountryName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Nombre del país"
-            android:textColor="#244F89"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/detailCountryFlag"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            android:contentDescription="Bandera del país"
-            android:scaleType="fitCenter" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Información general"
-            android:textColor="#244F89"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/detailOfficialName"
+        <!-- Tarjeta de información del país -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:textColor="#263746"
-            android:textSize="16sp"
-            android:text="Nombre oficial:" />
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/country_detail_card"
+            android:elevation="3dp">
 
+            <ImageView
+                android:id="@+id/detailCountryFlag"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:contentDescription="Bandera del país"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/detailCountryName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Nombre del país"
+                android:textColor="#202B38"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detailOfficialName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="Nombre oficial:"
+                android:textColor="#65717E"
+                android:textSize="14sp" />
+
+            <!-- Información organizada en filas -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/detailCapital"
+                    style="@style/CountryDetailRow"
+                    android:text="Capital:" />
+
+                <TextView
+                    android:id="@+id/detailRegion"
+                    style="@style/CountryDetailRow"
+                    android:text="Región:" />
+
+                <TextView
+                    android:id="@+id/detailSubregion"
+                    style="@style/CountryDetailRow"
+                    android:text="Subregión:" />
+
+                <TextView
+                    android:id="@+id/detailPopulation"
+                    style="@style/CountryDetailRow"
+                    android:text="Población:" />
+
+                <TextView
+                    android:id="@+id/detailCodes"
+                    style="@style/CountryDetailRow"
+                    android:text="Códigos ISO:" />
+
+                <TextView
+                    android:id="@+id/detailCurrencies"
+                    style="@style/CountryDetailRow"
+                    android:text="Monedas:" />
+
+                <TextView
+                    android:id="@+id/detailLanguages"
+                    style="@style/CountryDetailRow"
+                    android:text="Idiomas:" />
+
+                <TextView
+                    android:id="@+id/detailCoordinates"
+                    style="@style/CountryDetailRow"
+                    android:text="Coordenadas:" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Mapa -->
         <TextView
-            android:id="@+id/detailCapital"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="#263746"
-            android:textSize="16sp"
-            android:text="Capital:" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="Mapa de ciudades"
+            android:textColor="#244F89"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:id="@+id/mapContainer"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:background="#DCE8F2">
+
+            <org.osmdroid.views.MapView
+                android:id="@+id/countryMap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ProgressBar
+                android:id="@+id/mapProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/mapMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#DDFFFFFF"
+                android:padding="10dp"
+                android:gravity="center"
+                android:text="Preparando mapa..."
+                android:textColor="#34495E"
+                android:textSize="13sp" />
+
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/detailRegion"
+            android:id="@+id/citiesCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="#263746"
-            android:textSize="16sp"
-            android:text="Región:" />
-
-        <TextView
-            android:id="@+id/detailCodes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="#263746"
-            android:textSize="16sp"
-            android:text="Códigos ISO:" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="18dp"
             android:text="Ciudades principales"
+            android:textColor="#65717E"
+            android:textSize="13sp" />
+
+        <!-- Lista de ciudades y clima -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="10dp"
+            android:text="Clima de las ciudades"
             android:textColor="#244F89"
-            android:textSize="20sp"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/detailCitiesMessage"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/citiesRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="En el siguiente paso conectaremos GeoNames."
-            android:textColor="#65717E"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Clima y mapa"
-            android:textColor="#244F89"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="En los siguientes pasos integraremos WeatherAPI y el mapa interactivo."
-            android:textColor="#65717E"
-            android:textSize="15sp" />
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never" />
 
     </LinearLayout>
 </ScrollView>
